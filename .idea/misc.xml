@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="KubernetesApiProvider"><![CDATA[{}]]></component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/arrays/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/strings/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/generics/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/exceptions/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/control-flow/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/dates-and-time/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/file-io-and-nio/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/build-tools-maven/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/setup-and-tooling/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/concurrency-basics/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/unit-testing-junit/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/lambdas-and-streams/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/packages-and-imports/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/collections-framework/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/debugging-and-logging/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/methods-and-parameters/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/variables-and-data-types/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/01-java-basics/operators-and-expressions/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/interfaces/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/abstraction/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/inheritance/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/polymorphism/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/encapsulation/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/inner-classes/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/static-members/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/abstract-classes/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/method-overriding/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/method-overloading/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/classes-and-objects/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/design-patterns-intro/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/02-oop-with-java/composition-vs-inheritance/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/03-large-projects/ecommerce-cart/pom.xml" />
+        <option value="$PROJECT_DIR$/java-learning-path/03-large-projects/library-management/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="corretto-21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

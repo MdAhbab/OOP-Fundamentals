@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="encapsulation" />
+        <module name="unit-testing-junit" />
+        <module name="operators-and-expressions" />
+        <module name="setup-and-tooling" />
+        <module name="build-tools-maven" />
+        <module name="inheritance" />
+        <module name="polymorphism" />
+        <module name="methods-and-parameters" />
+        <module name="composition-vs-inheritance" />
+        <module name="dates-and-time" />
+        <module name="static-members" />
+        <module name="library-management" />
+        <module name="strings" />
+        <module name="generics" />
+        <module name="variables-and-data-types" />
+        <module name="abstract-classes" />
+        <module name="control-flow" />
+        <module name="interfaces" />
+        <module name="classes-and-objects" />
+        <module name="ecommerce-cart" />
+        <module name="concurrency-basics" />
+        <module name="packages-and-imports" />
+        <module name="abstraction" />
+        <module name="exceptions" />
+        <module name="collections-framework" />
+        <module name="inner-classes" />
+        <module name="file-io-and-nio" />
+        <module name="design-patterns-intro" />
+        <module name="method-overloading" />
+        <module name="debugging-and-logging" />
+        <module name="method-overriding" />
+        <module name="arrays" />
+        <module name="lambdas-and-streams" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
