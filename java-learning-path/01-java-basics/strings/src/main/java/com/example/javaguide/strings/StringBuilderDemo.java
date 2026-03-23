@@ -1,15 +1,27 @@
 package com.example.javaguide.strings;
 
 /**
- * StringBuilderDemo - Demonstrates StringBuilder and StringBuffer
+ * StringBuilderDemo - Demonstrates StringBuilder utility for immutable strings in Java.
+ * 
+ * StringBuilder and StringBuffer are mutable sequences of characters.
+ * StringBuilder is generally preferred as it is faster (but not thread-safe).
+ * This class covers:
+ * - Common operations (append, insert, replace, delete, reverse)
+ * - Performance comparison against String concatenation
  */
 public class StringBuilderDemo {
     
+    /**
+     * Main method running StringBuilder demonstrations.
+     */
     public static void main(String[] args) {
         demonstrateStringBuilder();
         demonstratePerformance();
     }
     
+    /**
+     * Demonstrates the primary methods inside StringBuilder.
+     */
     public static void demonstrateStringBuilder() {
         System.out.println("=== StringBuilder Demo ===");
         
@@ -41,6 +53,10 @@ public class StringBuilderDemo {
         System.out.println();
     }
     
+    /**
+     * Analyzes performance differences between standard string concatenation
+     * and using a mutable StringBuilder structure over 10K iterations.
+     */
     public static void demonstratePerformance() {
         System.out.println("=== Performance Comparison ===");
         
@@ -67,6 +83,12 @@ public class StringBuilderDemo {
         System.out.println();
     }
     
+    /**
+     * Concatenates an arbitrary number of strings efficiently using StringBuilder.
+     * 
+     * @param strings Varargs sequence of strings to concatenate
+     * @return A single concatenated string
+     */
     public static String concatenateWithBuilder(String... strings) {
         StringBuilder sb = new StringBuilder();
         for (String str : strings) {

@@ -4,8 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DesignPatternsDemo - Demonstrates common design patterns
- **/
+ * DesignPatternsDemo - Demonstrates common design patterns.
+ *
+ * Design patterns are reusable solutions to common software design problems.
+ *
+ * This demo covers:
+ * - Creational:  Singleton, Factory Method, Builder
+ * - Structural:  Decorator
+ * - Behavioural: Strategy, Observer, Command
+ *
+ * Each pattern section is self-contained with its own classes.
+ */
 public class DesignPatternsDemo {
     
     public static void main(String[] args) {

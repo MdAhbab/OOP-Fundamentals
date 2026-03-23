@@ -3,7 +3,19 @@ package com.example.javaguide.oop;
 import java.util.Objects;
 
 /**
- * MethodOverridingDemo - Demonstrates method overriding in Java
+ * MethodOverridingDemo - Demonstrates method overriding in Java.
+ *
+ * Method overriding: a subclass provides a specific implementation
+ * for a method already defined in its superclass. The method has the
+ * same name, parameters, and return type (or covariant return type).
+ *
+ * This demo covers:
+ * - Basic @Override usage
+ * - Runtime polymorphism (dynamic method dispatch)
+ * - Covariant return types
+ * - Overriding Object methods (toString, equals, hashCode)
+ * - Access modifier rules for overriding
+ * - Final methods (cannot be overridden)
  */
 public class MethodOverridingDemo {
     

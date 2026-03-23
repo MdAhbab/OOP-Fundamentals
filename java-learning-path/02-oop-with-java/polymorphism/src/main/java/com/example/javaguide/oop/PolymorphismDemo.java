@@ -1,74 +1,89 @@
 package com.example.javaguide.oop;
 
 /**
- * PolymorphismDemo - Demonstrates polymorphism
+ * PolymorphismDemo - Demonstrates polymorphism in Java.
+ *
+ * Polymorphism ("many forms") lets a single reference type refer to objects
+ * of different classes. The actual method that runs is determined at runtime
+ * (dynamic method dispatch), not compile time.
+ *
+ * This demo covers:
+ * - Runtime polymorphism via method overriding (Animal hierarchy)
+ * - Abstract class polymorphism (Shape hierarchy)
+ * - Polymorphic arrays and loops
  */
 public class PolymorphismDemo {
-    
+
     public static void main(String[] args) {
         demonstrateAnimalPolymorphism();
         demonstrateShapePolymorphism();
         demonstratePaymentPolymorphism();
     }
-    
+
+    /**
+     * Animal references can point to any subclass (Dog, Cat, Bird, etc.).
+     * The JVM resolves which makeSound() to call at runtime
+     * based on the actual object type, NOT the reference type.
+     */
     public static void demonstrateAnimalPolymorphism() {
         System.out.println("=== Animal Polymorphism ===");
 
-        Animal a1 = new Dog("Rex");
-        a1.makeSound(); // Outputs: Rex says: Woof!
-        Animal aa11 = new Animal("Generic Animal");
-        aa11.makeSound(); // Outputs: Generic Animal makes a sound
-        Dog d1 = new Dog("Donald");
-        d1.makeSound(); // Outputs: Donald says: Woof!
+        // 'Animal' reference, but actual object is Dog — calls Dog.makeSound()
+        Animal polymorphicDog = new Animal("Generic Animal");
+        polymorphicDog.makeSound();
 
-
-
-        // Polymorphic references
+        // Polymorphic array — one reference type, multiple object types
         Animal[] animals = {
                 new Dog("Buddy"),
                 new Cat("Whiskers"),
                 new Bird("Tweety"),
                 new Animal("Generic Animal"),
                 new Bird("Polly"),
-                new Animal("Dog"),
-                new Animal("Cat"),
         };
-        for (int i = 0; i < animals.length; i++) {
-            animals[i].makeSound(); // Dynamic method dispatch
+
+        // Dynamic method dispatch: each call resolves to the correct subclass method
+        for (Animal animal : animals) {
+            animal.makeSound();
         }
-//        for (Animal i : animals) {
-//            i.makeSound(); // Dynamic method dispatch
-//            i.eat();
-//        }
         System.out.println();
     }
 
+    /**
+     * Shape is abstract — it cannot be instantiated.
+     * Each concrete subclass (Circle, Rectangle, Triangle) provides
+     * its own calculateArea() implementation.
+     */
     public static void demonstrateShapePolymorphism() {
         System.out.println("=== Shape Polymorphism ===");
-        
+
         Shape[] shapes = {
             new Circle(5.0),
             new Rectangle(4.0, 5.0),
             new Triangle(3.0, 4.0)
         };
 
-        
+        // getClass().getSimpleName() reveals the actual runtime type
         for (Shape shape : shapes) {
-            System.out.println(shape.getClass().getSimpleName() + 
+            System.out.println(shape.getClass().getSimpleName() +
                              " area: " + shape.calculateArea());
         }
         System.out.println();
     }
-    
+
+    /**
+     * Payment is abstract — each concrete strategy defines how payment works.
+     * This is also the foundation of the Strategy design pattern.
+     */
     public static void demonstratePaymentPolymorphism() {
         System.out.println("=== Payment Polymorphism ===");
-        
+
         Payment[] payments = {
             new CreditCardPayment("1234-5678-9012-3456"),
             new PayPalPayment("user@email.com"),
             new CashPayment()
         };
-        
+
+        // Same method call, different behaviour depending on concrete type
         for (Payment payment : payments) {
             payment.processPayment(100.0);
         }

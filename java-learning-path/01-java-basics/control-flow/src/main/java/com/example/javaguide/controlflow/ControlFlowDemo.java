@@ -1,10 +1,20 @@
 package com.example.javaguide.controlflow;
 
 /**
- * ControlFlowDemo - Demonstrates conditional statements and loops
+ * ControlFlowDemo - Demonstrates conditional statements and loops in Java.
+ *
+ * Control flow determines the order in which statements are executed.
+ * This class covers:
+ * - if/else and nested if-else statements
+ * - switch statements (using the enhanced switch expression)
+ * - for loops, while loops, and do-while loops
+ * - break and continue statements
  */
 public class ControlFlowDemo {
     
+    /**
+     * Main method running all control flow demonstrations.
+     */
     public static void main(String[] args) {
         demonstrateIfElse();
         demonstrateSwitch();
@@ -14,6 +24,9 @@ public class ControlFlowDemo {
         demonstrateBreakContinue();
     }
     
+    /**
+     * Demonstrates the basic if-else and if-else-if ladder.
+     */
     public static void demonstrateIfElse() {
         System.out.println("=== If-Else Statements ===");
         
@@ -41,7 +54,10 @@ public class ControlFlowDemo {
         System.out.println("Score " + score + " = Grade " + grade);
         System.out.println();
     }
-    
+    /**
+     * Demonstrates the enhanced switch expression (introduced in Java 14).
+     * It uses the arrow syntax (->) and yields a value directly without needing 'break'.
+     */
     public static void demonstrateSwitch() {
         System.out.println("=== Switch Statement ===");
         
@@ -59,7 +75,10 @@ public class ControlFlowDemo {
         System.out.println("Day " + day + " is " + dayName);
         System.out.println();
     }
-    
+    /**
+     * Demonstrates standard for loops and enhanced for loops (for-each).
+     * Used when the number of iterations is known before entering the loop.
+     */
     public static void demonstrateForLoop() {
         System.out.println("=== For Loop ===");
         
@@ -76,7 +95,10 @@ public class ControlFlowDemo {
         }
         System.out.println("\n");
     }
-    
+    /**
+     * Demonstrates the while loop.
+     * Used when the condition needs to be checked before loop execution.
+     */
     public static void demonstrateWhileLoop() {
         System.out.println("=== While Loop ===");
         
@@ -88,7 +110,10 @@ public class ControlFlowDemo {
         }
         System.out.println();
     }
-    
+    /**
+     * Demonstrates the do-while loop.
+     * Guaranteed to execute at least once, as the condition is checked after the block.
+     */
     public static void demonstrateDoWhileLoop() {
         System.out.println("=== Do-While Loop ===");
         
@@ -100,7 +125,10 @@ public class ControlFlowDemo {
         } while (i <= 5);
         System.out.println();
     }
-    
+    /**
+     * Demonstrates the use of 'break' (exiting a loop entirely) and
+     * 'continue' (skipping the current iteration and moving to the next).
+     */
     public static void demonstrateBreakContinue() {
         System.out.println("=== Break and Continue ===");
         
@@ -120,7 +148,12 @@ public class ControlFlowDemo {
         }
         System.out.println("\n");
     }
-    
+    /**
+     * Utility method: Translates a numerical score into a letter grade.
+     * 
+     * @param score The numerical score (0-100)
+     * @return The corresponding letter grade
+     */
     public static String getGrade(int score) {
         if (score >= 90) return "A";
         else if (score >= 80) return "B";
@@ -128,11 +161,21 @@ public class ControlFlowDemo {
         else if (score >= 60) return "D";
         else return "F";
     }
-    
+    /**
+     * Utility method: Checks if a given number is even.
+     * 
+     * @param number The number to check
+     * @return true if the number is even, false otherwise
+     */
     public static boolean isEven(int number) {
         return number % 2 == 0;
     }
-    
+    /**
+     * Utility method: Calculates the factorial of a given number.
+     * 
+     * @param n The input number
+     * @return The calculated factorial of n
+     */
     public static int factorial(int n) {
         int result = 1;
         for (int i = 1; i <= n; i++) {

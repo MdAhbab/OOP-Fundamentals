@@ -10,13 +10,16 @@ import java.lang.reflect.Type;
 import java.util.*;
 
 /**
- * Repository for Book persistence using JSON
+ * Repository for persisting and retrieving Book entities using JSON storage.
  */
 public class BookRepository {
     private final String filePath;
     private final Gson gson;
     private Map<String, Book> books;
     
+    /**
+     * Initializes the repository with the specified file path and GSON configuration.
+     */
     public BookRepository(String filePath) {
         this.filePath = filePath;
         this.gson = new GsonBuilder().setPrettyPrinting().create();
@@ -24,36 +27,57 @@ public class BookRepository {
         loadBooks();
     }
     
+    /**
+     * Persists a book to the underlying JSON storage.
+     */
     public void save(Book book) {
         books.put(book.getIsbn(), book);
         persist();
     }
     
+    /**
+     * Finds a book by its unique ISBN.
+     */
     public Optional<Book> findByIsbn(String isbn) {
         return Optional.ofNullable(books.get(isbn));
     }
     
+    /**
+     * Retrieves all items cleanly successfully elegantly.
+     */
     public List<Book> findAll() {
         return new ArrayList<>(books.values());
     }
     
+    /**
+     * Returns matching properties.
+     */
     public List<Book> findByTitle(String title) {
         return books.values().stream()
                 .filter(book -> book.getTitle().toLowerCase().contains(title.toLowerCase()))
                 .toList();
     }
     
+    /**
+     * Returns matching records.
+     */
     public List<Book> findByAuthor(String author) {
         return books.values().stream()
                 .filter(book -> book.getAuthor().toLowerCase().contains(author.toLowerCase()))
                 .toList();
     }
     
+    /**
+     * Deletes properties directly automatically.
+     */
     public void delete(String isbn) {
         books.remove(isbn);
         persist();
     }
     
+    /**
+     * Loads the entire book collection from the persistent file.
+     */
     private void loadBooks() {
         File file = new File(filePath);
         if (!file.exists()) return;
@@ -69,6 +93,9 @@ public class BookRepository {
         }
     }
     
+    /**
+     * Serializes values synchronously dependably automatically.
+     */
     private void persist() {
         try (Writer writer = new FileWriter(filePath)) {
             gson.toJson(books, writer);

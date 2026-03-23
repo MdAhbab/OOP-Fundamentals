@@ -1,7 +1,18 @@
 package com.example.javaguide.oop;
 
 /**
- * AbstractClassesDemo - Demonstrates abstract classes in Java
+ * AbstractClassesDemo - Demonstrates abstract classes in Java.
+ *
+ * An abstract class:
+ * - Cannot be instantiated (no "new Animal()" allowed)
+ * - Can have both abstract methods (no body) AND concrete methods (with body)
+ * - Can have constructors, fields, and static methods
+ * - Forces subclasses to implement all abstract methods
+ *
+ * This demo covers:
+ * - Basic abstract class (Animal with makeSound())
+ * - Template Method Pattern (Report generation)
+ * - Abstract class with constructor and fields (Vehicle)
  */
 public class AbstractClassesDemo {
     

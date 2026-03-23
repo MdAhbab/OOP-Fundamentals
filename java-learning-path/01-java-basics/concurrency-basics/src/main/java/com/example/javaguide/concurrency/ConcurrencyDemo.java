@@ -4,10 +4,18 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * ConcurrencyDemo - Demonstrates basic concurrency concepts
+ * ConcurrencyDemo - Demonstrates fundamental concurrency concepts in Java.
+ * 
+ * Provides illustrative structural examples of threading mechanisms, Runnable implementations,
+ * Thread Pools via ExecutorService, and classical synchronization techniques.
  */
 public class ConcurrencyDemo {
     
+    /**
+     * Executes defined thread components linearly displaying varying approaches.
+     * 
+     * @throws Exception generally handling execution Thread joins globally
+     */
     public static void main(String[] args) throws Exception {
         demonstrateBasicThread();
         demonstrateRunnable();
@@ -15,6 +23,11 @@ public class ConcurrencyDemo {
         demonstrateSynchronization();
     }
     
+    /**
+     * Demonstrates a basic anonymous Thread implementation utilizing modern Lambda structures.
+     * 
+     * @throws InterruptedException if waiting threads get interrupted physically
+     */
     public static void demonstrateBasicThread() throws InterruptedException {
         System.out.println("=== Basic Thread ===");
         
@@ -27,6 +40,11 @@ public class ConcurrencyDemo {
         System.out.println();
     }
     
+    /**
+     * Implements reusable Runnable tasks across differing parallel Thread allocations dynamically.
+     * 
+     * @throws InterruptedException if thread joining halts unsafely
+     */
     public static void demonstrateRunnable() throws InterruptedException {
         System.out.println("=== Runnable Interface ===");
         
@@ -52,6 +70,12 @@ public class ConcurrencyDemo {
         System.out.println();
     }
     
+    /**
+     * Replaces direct Thread instantiations natively via structural Thread Pools maximizing efficiency.
+     * Extracts results securely via Future structures wrapping tasks generically.
+     * 
+     * @throws Exception matching overarching Future extraction limits mapping generically
+     */
     public static void demonstrateExecutorService() throws Exception {
         System.out.println("=== ExecutorService ===");
         
@@ -77,6 +101,12 @@ public class ConcurrencyDemo {
         System.out.println();
     }
     
+    /**
+     * Illustrates classical critical section safeguards utilizing synchronized keywords.
+     * Exposes multi-threading overlaps correctly validating thread-safe accumulations.
+     * 
+     * @throws InterruptedException highlighting thread termination block requirements
+     */
     public static void demonstrateSynchronization() throws InterruptedException {
         System.out.println("=== Synchronization ===");
         
@@ -107,30 +137,47 @@ public class ConcurrencyDemo {
 }
 
 /**
- * Thread-safe counter using synchronized
+ * Thread-safe counter structure locking operations sequentially over common object monitors.
  */
 class Counter {
     private int value = 0;
     
+    /**
+     * Safely increments the class state guarding changes tightly universally via mutual exclusion.
+     */
     public synchronized void increment() {
         value++;
     }
     
+    /**
+     * Validates consistent atomic reads guaranteeing extraction during safe boundary phases.
+     * 
+     * @return Output state of synchronized accumulation element
+     */
     public synchronized int getValue() {
         return value;
     }
 }
 
 /**
- * Atomic counter (alternative approach)
+ * Alternate thread-safe encapsulation manipulating properties natively over Atomic hardware structures.
+ * Bypasses intensive generic synchronized locks entirely utilizing CAS algorithms dynamically.
  */
 class AtomicCounter {
     private AtomicInteger value = new AtomicInteger(0);
     
+    /**
+     * Non-blocking iteration update mathematically replacing locks directly via CPU primitives natively. 
+     */
     public void increment() {
         value.incrementAndGet();
     }
     
+    /**
+     * Returns standard final calculated values mapped generically across active Atom instances.
+     * 
+     * @return Integer state
+     */
     public int getValue() {
         return value.get();
     }

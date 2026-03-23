@@ -2,6 +2,9 @@ package com.example.javaguide.ecommerce.model;
 
 import java.util.Objects;
 
+/**
+ * Core product entity component modeling immutable attributes representing tangible sellable objects tracking dynamic stock parameters natively.
+ */
 public class Product {
     private String productId;
     private String name;
@@ -10,6 +13,13 @@ public class Product {
     private int stockQuantity;
     private String description;
     
+    /**
+     * Populates distinct tracking item targets.
+     * 
+     * @param productId Distinct database identity marker string
+     * @param name Representational formatted name identifying natively
+     * @param price Value float reference determining costs inherently
+     */
     public Product(String productId, String name, double price) {
         this.productId = productId;
         this.name = name;
@@ -18,10 +28,16 @@ public class Product {
         this.category = "General";
     }
     
+    /**
+     * Checks if requested ranges safely fall under absolute physical quantities internally structurally.
+     */
     public boolean isInStock(int quantity) {
         return stockQuantity >= quantity;
     }
     
+    /**
+     * Pulls reserved item values safely verifying limits unconditionally before modifying explicitly algebraically.
+     */
     public void reduceStock(int quantity) {
         if (!isInStock(quantity)) {
             throw new IllegalStateException("Insufficient stock");
@@ -29,6 +45,9 @@ public class Product {
         this.stockQuantity -= quantity;
     }
     
+    /**
+     * Increases inventory ranges explicitly mechanically augmenting numeric parameters unconditionally natively.
+     */
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
     }

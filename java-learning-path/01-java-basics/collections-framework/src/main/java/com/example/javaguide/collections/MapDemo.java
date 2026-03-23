@@ -3,16 +3,29 @@ package com.example.javaguide.collections;
 import java.util.*;
 
 /**
- * MapDemo - Demonstrates Map interface implementations
+ * MapDemo - Demonstrates Map interface implementations in Java.
+ *
+ * A Map is a collection that maps keys to values. Keys must be unique.
+ * This class covers:
+ * - HashMap (Fast, unordered, allows nulls)
+ * - TreeMap (Sorted by keys, slower insertion)
+ * - Iterating over Maps (keys, values, entries)
  */
 public class MapDemo {
     
+    /**
+     * Main method running all Map demonstrations.
+     */
     public static void main(String[] args) {
         demonstrateHashMap();
         demonstrateTreeMap();
         demonstrateMapOperations();
     }
     
+    /**
+     * Demonstrates HashMap properties and methods.
+     * HashMap stores data in key-value pairs using a hash table implementation.
+     */
     public static void demonstrateHashMap() {
         System.out.println("=== HashMap Demo ===");
         
@@ -37,7 +50,10 @@ public class MapDemo {
         System.out.println("After remove: " + students);
         System.out.println();
     }
-    
+    /**
+     * Demonstrates TreeMap properties and methods.
+     * TreeMap guarantees that keys will be in ascending key order.
+     */
     public static void demonstrateTreeMap() {
         System.out.println("=== TreeMap Demo ===");
         
@@ -54,7 +70,10 @@ public class MapDemo {
         System.out.println("Last key: " + treeMap.lastKey());
         System.out.println();
     }
-    
+    /**
+     * Demonstrates different ways to iterate through Maps and their entries.
+     * Covers keySet, values, entrySet, and lambda forEach.
+     */
     public static void demonstrateMapOperations() {
         System.out.println("=== Map Operations ===");
         
@@ -88,7 +107,15 @@ public class MapDemo {
         capitals.forEach((k, v) -> System.out.println("  " + k + " = " + v));
         System.out.println();
     }
-    
+    /**
+     * Swaps the keys and values of a map.
+     * Note: If original map has duplicate values, some will be overwritten as keys must be unique.
+     * 
+     * @param <K> The type of keys in original map
+     * @param <V> The type of values in original map
+     * @param map The input map containing key-value pairs
+     * @return A new map with the keys and values swapped
+     */
     public static <K, V> Map<V, K> reverseMap(Map<K, V> map) {
         Map<V, K> reversed = new HashMap<>();
         for (Map.Entry<K, V> entry : map.entrySet()) {
@@ -96,7 +123,12 @@ public class MapDemo {
         }
         return reversed;
     }
-    
+    /**
+     * Analyzes a text string and counts the occurrence (frequency) of each word.
+     *
+     * @param text The input string to analyze
+     * @return A map mapping each unique word to its frequency count
+     */
     public static Map<String, Integer> wordFrequency(String text) {
         Map<String, Integer> frequency = new HashMap<>();
         String[] words = text.toLowerCase().split("\\s+");

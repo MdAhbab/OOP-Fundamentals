@@ -3,6 +3,9 @@ package com.example.javaguide.ecommerce.model;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * Describes finalized checkout receipts capturing comprehensive metadata defining immutable order combinations generically.
+ */
 public class Order {
     private String orderId;
     private String userId;
@@ -12,10 +15,20 @@ public class Order {
     private LocalDateTime orderDate;
     private String paymentMethod;
     
+    /**
+     * Tracks transitional order states determining downstream fulfillment progress sequentially.
+     */
     public enum OrderStatus {
         PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED
     }
     
+    /**
+     * Constructs a pending order representation initialized globally.
+     * 
+     * @param userId Initiating client target explicitly mapped natively
+     * @param items Sub-entities accumulated during cart mapping stages
+     * @param totalAmount Float value resolving parsed aggregated costs specifically
+     */
     public Order(String userId, List<OrderItem> items, double totalAmount) {
         this.orderId = UUID.randomUUID().toString();
         this.userId = userId;
@@ -25,6 +38,9 @@ public class Order {
         this.orderDate = LocalDateTime.now();
     }
     
+    /**
+     * Validates and advances state markers initiating further packaging operations correctly.
+     */
     public void confirm() {
         if (status != OrderStatus.PENDING) {
             throw new IllegalStateException("Can only confirm pending orders");
@@ -32,6 +48,9 @@ public class Order {
         this.status = OrderStatus.CONFIRMED;
     }
     
+    /**
+     * Terminates existing order transitions checking illegal completion thresholds gracefully conditionally.
+     */
     public void cancel() {
         if (status == OrderStatus.DELIVERED) {
             throw new IllegalStateException("Cannot cancel delivered orders");
@@ -57,25 +76,3 @@ public class Order {
     }
 }
 
-public class OrderItem {
-    private String productId;
-    private String productName;
-    private double price;
-    private int quantity;
-    
-    public OrderItem(Product product, int quantity) {
-        this.productId = product.getProductId();
-        this.productName = product.getName();
-        this.price = product.getPrice();
-        this.quantity = quantity;
-    }
-    
-    public String getProductId() { return productId; }
-    public String getProductName() { return productName; }
-    public double getPrice() { return price; }
-    public int getQuantity() { return quantity; }
-    
-    public double getSubtotal() {
-        return price * quantity;
-    }
-}

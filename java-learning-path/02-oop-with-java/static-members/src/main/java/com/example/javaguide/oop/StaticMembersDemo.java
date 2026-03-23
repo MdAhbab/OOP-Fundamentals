@@ -4,7 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * StaticMembersDemo - Demonstrates static members in Java
+ * StaticMembersDemo - Demonstrates static members in Java.
+ *
+ * 'static' means the member belongs to the CLASS, not to any particular instance.
+ * Static fields are shared across all instances; static methods can be called
+ * without creating an object.
+ *
+ * This demo covers:
+ * - Static variables (shared state, object counting)
+ * - Static methods (utility methods, no instance needed)
+ * - Static initialization blocks (run once when class is loaded)
+ * - Utility classes (private constructor, all-static methods)
+ * - Singleton pattern using static
+ * - Static factory methods
+ * - Static vs instance members
  */
 public class StaticMembersDemo {
     

@@ -3,10 +3,16 @@ package com.example.javaguide.generics;
 import java.util.*;
 
 /**
- * GenericsDemo - Demonstrates generic classes and methods
+ * GenericsDemo - Demonstrates generic classes and methods in Java.
+ * 
+ * Generics enable types (classes and interfaces) to be parameters when defining
+ * classes, interfaces and methods, providing stronger type checks at compile time.
  */
 public class GenericsDemo {
     
+    /**
+     * Main method running all the generic demonstrations.
+     */
     public static void main(String[] args) {
         demonstrateGenericBox();
         demonstrateGenericMethods();
@@ -14,6 +20,9 @@ public class GenericsDemo {
         demonstrateWildcards();
     }
     
+    /**
+     * Demonstrates the usage of generic class structures with varying parameter types.
+     */
     public static void demonstrateGenericBox() {
         System.out.println("=== Generic Box Demo ===");
         
@@ -33,6 +42,9 @@ public class GenericsDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates utilizing generic methods on array data elements.
+     */
     public static void demonstrateGenericMethods() {
         System.out.println("=== Generic Method Demo ===");
         
@@ -54,6 +66,10 @@ public class GenericsDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates using bounded type parameters to restrict the types 
+     * that can be used as arguments in generic methods.
+     */
     public static void demonstrateBoundedTypes() {
         System.out.println("=== Bounded Type Parameters ===");
         
@@ -70,6 +86,9 @@ public class GenericsDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates upper and unbounded wildcards allowing varying structured generic inputs.
+     */
     public static void demonstrateWildcards() {
         System.out.println("=== Wildcards Demo ===");
         
@@ -87,7 +106,12 @@ public class GenericsDemo {
         System.out.println();
     }
     
-    // Generic method to print array
+    /**
+     * Generic method to print an array's contents sequentially.
+     * 
+     * @param <T> The parameterized type element defining the array contents
+     * @param array Supported typed input array
+     */
     public static <T> void printArray(T[] array) {
         for (T element : array) {
             System.out.print(element + " ");
@@ -95,7 +119,13 @@ public class GenericsDemo {
         System.out.println();
     }
     
-    // Generic method to reverse array
+    /**
+     * Generic method executing an in-place inversion sorting of elements.
+     * 
+     * @param <T> Parameter representing targeted elements
+     * @param array Array requiring element positioning inversion
+     * @return Fresh array consisting of inverted structural elements
+     */
     public static <T> T[] reverseArray(T[] array) {
         @SuppressWarnings("unchecked")
         T[] reversed = (T[]) new Object[array.length];
@@ -105,7 +135,14 @@ public class GenericsDemo {
         return reversed;
     }
     
-    // Bounded type parameter - must implement Comparable
+    /**
+     * Bounded type parameter implementation locating maxima against an element series.
+     * Elements MUST implement the Comparable interface.
+     * 
+     * @param <T> Type param matching implementations of Comparable interfaces
+     * @param array Target population
+     * @return Derived maximum bound element inside parameter list
+     */
     public static <T extends Comparable<T>> T findMax(T[] array) {
         if (array == null || array.length == 0) {
             return null;
@@ -120,7 +157,12 @@ public class GenericsDemo {
         return max;
     }
     
-    // Upper bounded wildcard
+    /**
+     * Accumulates all elements mathematically matching an overarching Number generic type inheritance.
+     * 
+     * @param list Generic element listing conforming structurally with Number extension
+     * @return Accumulated sum value dynamically derived 
+     */
     public static double sumOfList(List<? extends Number> list) {
         double sum = 0.0;
         for (Number num : list) {
@@ -129,7 +171,11 @@ public class GenericsDemo {
         return sum;
     }
     
-    // Unbounded wildcard
+    /**
+     * Processes standard generic elements universally matching unbounded restrictions.
+     * 
+     * @param list Unknown parameter-based object enumeration
+     */
     public static void printList(List<?> list) {
         for (Object obj : list) {
             System.out.print(obj + " ");
@@ -137,7 +183,13 @@ public class GenericsDemo {
         System.out.println();
     }
     
-    // Bounded type parameter with Number
+    /**
+     * Extracts aggregate element summations utilizing Number bounded list targets directly.
+     * 
+     * @param <T> Derived parameters maintaining direct Number type lineage
+     * @param numbers Targeted element array reference mapping
+     * @return Compiled final calculated aggregate numeric elements
+     */
     public static <T extends Number> double sumOfNumbers(List<T> numbers) {
         double sum = 0.0;
         for (T num : numbers) {
@@ -148,8 +200,11 @@ public class GenericsDemo {
 }
 
 /**
- * Generic Box class
- */
+     * Generic Box class implementation illustrating simple structured encapsulation
+     * logic mapped towards variable parameters representations at instantiation.
+     * 
+     * @param <T> Target object defined at instantiation time 
+     */
 class Box<T> {
     private T value;
     
@@ -167,7 +222,11 @@ class Box<T> {
 }
 
 /**
- * Generic Pair class
+ * Generic Pair class dynamically encapsulating distinct double-key mappings 
+ * for targeted structured definitions.
+ * 
+ * @param <K> Assigned primary Key structural type
+ * @param <V> Defined stored Value variable type
  */
 class Pair<K, V> {
     private K key;

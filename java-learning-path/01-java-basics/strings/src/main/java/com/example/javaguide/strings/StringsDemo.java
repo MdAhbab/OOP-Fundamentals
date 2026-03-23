@@ -1,10 +1,21 @@
 package com.example.javaguide.strings;
 
 /**
- * StringsDemo - Demonstrates String class and operations
+ * StringsDemo - Demonstrates String class capabilities and operations in Java.
+ * 
+ * Strings are immutable sequences of characters.
+ * This class covers:
+ * - String creation (literal vs object)
+ * - String Immutability and the String Pool
+ * - Common String methods (substring, charAt, split, transform)
+ * - String comparisons (equals, ==, compareTo)
+ * - String formatting (String.format, printf, text blocks)
  */
 public class StringsDemo {
     
+    /**
+     * Main method running String demonstrations.
+     */
     public static void main(String[] args) {
         demonstrateBasics();
         demonstrateMethods();
@@ -12,6 +23,10 @@ public class StringsDemo {
         demonstrateFormatting();
     }
     
+    /**
+     * Demonstrates string literal pool versus object creation, 
+     * as well as the concept of String immutability.
+     */
     public static void demonstrateBasics() {
         System.out.println("=== String Basics ===");
         
@@ -32,6 +47,9 @@ public class StringsDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates usage of various built-in String methods for manipulation and querying.
+     */
     public static void demonstrateMethods() {
         System.out.println("=== String Methods ===");
         
@@ -60,6 +78,10 @@ public class StringsDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates different ways of comparing strings 
+     * contextually against object references.
+     */
     public static void demonstrateComparison() {
         System.out.println("=== String Comparison ===");
         
@@ -75,6 +97,9 @@ public class StringsDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates string formatting utilities, including new Java 15 text blocks.
+     */
     public static void demonstrateFormatting() {
         System.out.println("=== String Formatting ===");
         
@@ -102,12 +127,24 @@ public class StringsDemo {
     
     // Utility methods
     
+    /**
+     * Checks whether a given string is a palindrome (reads same forwards and backwards).
+     * 
+     * @param str The string to check
+     * @return true if it is a palindrome
+     */
     public static boolean isPalindrome(String str) {
         String cleaned = str.toLowerCase().replaceAll("[^a-z0-9]", "");
         String reversed = new StringBuilder(cleaned).reverse().toString();
         return cleaned.equals(reversed);
     }
     
+    /**
+     * Counts the number of vowels in a given string.
+     * 
+     * @param str The string to analyze
+     * @return The total count of vowels
+     */
     public static int countVowels(String str) {
         int count = 0;
         String vowels = "aeiouAEIOU";
@@ -119,10 +156,23 @@ public class StringsDemo {
         return count;
     }
     
+    /**
+     * Reverses a given string.
+     * 
+     * @param str The string to reverse
+     * @return The reversed string
+     */
     public static String reverse(String str) {
         return new StringBuilder(str).reverse().toString();
     }
     
+    /**
+     * Checks if two given strings are anagrams of one another.
+     * 
+     * @param s1 The first string
+     * @param s2 The second string
+     * @return true if both strings are anagrams
+     */
     public static boolean isAnagram(String s1, String s2) {
         if (s1.length() != s2.length()) return false;
         

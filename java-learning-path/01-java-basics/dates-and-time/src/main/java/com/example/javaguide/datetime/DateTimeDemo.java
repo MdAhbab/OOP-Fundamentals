@@ -5,10 +5,16 @@ import java.time.format.*;
 import java.time.temporal.*;
 
 /**
- * DateTimeDemo - Demonstrates Java Date/Time API (java.time package)
+ * DateTimeDemo - Demonstrates Java Date/Time API (java.time package) integrations natively.
+ * 
+ * Provides explicit implementations illustrating immutable LocalDate formatting, temporal manipulations,
+ * Period measurements, parsing transformations, and time duration architectures comprehensively.
  */
 public class DateTimeDemo {
     
+    /**
+     * Main execution entry tracking standard date demonstrations structurally.
+     */
     public static void main(String[] args) {
         demonstrateLocalDate();
         demonstrateLocalTime();
@@ -17,6 +23,9 @@ public class DateTimeDemo {
         demonstrateFormatting();
     }
     
+    /**
+     * Manipulates isolated LocalDate representations defining generic calendar bounds exclusively.
+     */
     public static void demonstrateLocalDate() {
         System.out.println("=== LocalDate Demo ===");
         
@@ -42,6 +51,9 @@ public class DateTimeDemo {
         System.out.println();
     }
     
+    /**
+     * Captures time isolated formats operating identically without referencing any dates mechanically.
+     */
     public static void demonstrateLocalTime() {
         System.out.println("=== LocalTime Demo ===");
         
@@ -59,6 +71,9 @@ public class DateTimeDemo {
         System.out.println();
     }
     
+    /**
+     * Unifies structured time boundaries exposing full combinations dynamically capturing instants natively.
+     */
     public static void demonstrateLocalDateTime() {
         System.out.println("=== LocalDateTime Demo ===");
         
@@ -78,6 +93,9 @@ public class DateTimeDemo {
         System.out.println();
     }
     
+    /**
+     * Defines length intervals mathematically distinguishing generic Periods (Dates) against Durations (Times).
+     */
     public static void demonstratePeriodAndDuration() {
         System.out.println("=== Period and Duration ===");
         
@@ -102,6 +120,9 @@ public class DateTimeDemo {
         System.out.println();
     }
     
+    /**
+     * Outlines custom standard pattern combinations enabling raw String parsing correctly back into Time interfaces.
+     */
     public static void demonstrateFormatting() {
         System.out.println("=== Formatting and Parsing ===");
         
@@ -124,19 +145,44 @@ public class DateTimeDemo {
     
     // Utility methods
     
+    /**
+     * Calculates absolute age difference explicitly finding year intervals generically natively.
+     * 
+     * @param birthDate User targeted LocalDate origin
+     * @return Passed chronological years representing simple age values
+     */
     public static int calculateAge(LocalDate birthDate) {
         return Period.between(birthDate, LocalDate.now()).getYears();
     }
     
+    /**
+     * Determines granular interval distances isolating numerical days precisely separating bounds.
+     * 
+     * @param start Foundational origin target date
+     * @param end Termination chronological endpoint sequence
+     * @return Integer long scalar value corresponding entirely towards absolute separated target days.
+     */
     public static long daysBetween(LocalDate start, LocalDate end) {
         return ChronoUnit.DAYS.between(start, end);
     }
     
+    /**
+     * Categorizes calendar values verifying weekend limits mathematically explicitly.
+     * 
+     * @param date Calendar representation requiring mapping validation
+     * @return True specifically whenever limits match weekends directly
+     */
     public static boolean isWeekend(LocalDate date) {
         DayOfWeek day = date.getDayOfWeek();
         return day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY;
     }
     
+    /**
+     * Filters chronologies identifying the subsequent weekday boundary universally circumventing weekends functionally.
+     * 
+     * @param date Origin standard reference map
+     * @return First target sequence explicitly missing weekend boundaries mechanically via Chrono loop patterns
+     */
     public static LocalDate getNextWorkingDay(LocalDate date) {
         LocalDate next = date.plusDays(1);
         while (isWeekend(next)) {

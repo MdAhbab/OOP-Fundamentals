@@ -5,16 +5,25 @@ import java.util.function.*;
 import java.util.stream.*;
 
 /**
- * LambdasDemo - Demonstrates lambda expressions and Stream API
+ * LambdasDemo - Demonstrates lambda expressions and the Stream API generically in Java.
+ * 
+ * Includes defining functional interfaces natively encapsulating basic streams processing models,
+ * filtering transformations natively alongside collection accumulators correctly generating statistics.
  */
 public class LambdasDemo {
     
+    /**
+     * Main control loop mapping sequentially all lambda expression variants testing correctly.
+     */
     public static void main(String[] args) {
         demonstrateLambdas();
         demonstrateStreams();
         demonstrateCollectors();
     }
     
+    /**
+     * Implements basic functional definitions utilizing shorthand variable passing universally (Lambdas).
+     */
     public static void demonstrateLambdas() {
         System.out.println("=== Lambda Expressions ===");
         
@@ -45,6 +54,9 @@ public class LambdasDemo {
         System.out.println();
     }
     
+    /**
+     * Parses native collections defining non-mutating transformation pipelines globally via Streams natively.
+     */
     public static void demonstrateStreams() {
         System.out.println("=== Stream Operations ===");
         
@@ -89,6 +101,9 @@ public class LambdasDemo {
         System.out.println();
     }
     
+    /**
+     * Details terminal output generations mechanically joining or gathering element values statistically mechanically.
+     */
     public static void demonstrateCollectors() {
         System.out.println("=== Advanced Collectors ===");
         
@@ -114,23 +129,47 @@ public class LambdasDemo {
     
     // Utility methods using streams
     
+    /**
+     * Utility filtering lists via functional interface Stream predicates conditionally capturing even formats dynamically.
+     * 
+     * @param numbers Generic input Array reference populated values entirely
+     * @return Sequentially isolated List parameter array maintaining targeted conditionals strictly
+     */
     public static List<Integer> filterEvenNumbers(List<Integer> numbers) {
         return numbers.stream()
             .filter(n -> n % 2 == 0)
             .collect(Collectors.toList());
     }
     
+    /**
+     * Translates strings completely mapped across capitalization function boundaries structurally without loops manually.
+     * 
+     * @param strings Passed list populated generically completely strings
+     * @return Formats uppercase elements structurally via mapped sequences 
+     */
     public static List<String> convertToUpperCase(List<String> strings) {
         return strings.stream()
             .map(String::toUpperCase)
             .collect(Collectors.toList());
     }
     
+    /**
+     * Evaluates sequence limits searching inherently generic parameter limits reducing mathematically over max bounds natively.
+     * 
+     * @param numbers Captured array components logically integer mapping structures
+     * @return Encapsulated Optional wrapper guarding nulls directly referencing top parameter bounds
+     */
     public static Optional<Integer> findMax(List<Integer> numbers) {
         return numbers.stream()
             .max(Integer::compareTo);
     }
     
+    /**
+     * Mechanically measures total inputs generating aggregated average values generically without loop architectures.
+     * 
+     * @param numbers Passed generic data mapped target bounds exclusively
+     * @return Compiled mathematical float dynamically formatted entirely sequentially natively 
+     */
     public static double calculateAverage(List<Integer> numbers) {
         return numbers.stream()
             .mapToInt(Integer::intValue)

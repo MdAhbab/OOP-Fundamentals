@@ -3,7 +3,21 @@ package com.example.javaguide.oop;
 import java.util.Arrays;
 
 /**
- * MethodOverloadingDemo - Demonstrates method overloading in Java
+ * MethodOverloadingDemo - Demonstrates method overloading (compile-time polymorphism).
+ *
+ * Method overloading: defining multiple methods with the SAME NAME but
+ * DIFFERENT parameter lists (type, count, or order). The compiler decides
+ * which overload to call based on the arguments at compile time.
+ *
+ * Rules:
+ * - Methods must differ in parameter type, number, or order
+ * - Return type alone is NOT sufficient to overload
+ *
+ * This demo covers:
+ * - Basic overloading by param type and count
+ * - Constructor overloading
+ * - Varargs overloading
+ * - Type promotion (byte/short/char → int)
  */
 public class MethodOverloadingDemo {
     

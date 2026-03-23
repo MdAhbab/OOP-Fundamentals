@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * Loan entity representing a book loan transaction
+ * Represents a transaction record for a borrowed book.
  */
 public class Loan {
     private String loanId;
@@ -15,10 +15,20 @@ public class Loan {
     private LocalDate returnDate;
     private LoanStatus status;
     
+    /**
+     * Tracks the current state of a loan.
+     */
     public enum LoanStatus {
         ACTIVE, RETURNED, OVERDUE, RENEWED
     }
     
+    /**
+     * Initializes a new loan record with a 2-week due date.
+     * 
+     * @param loanId Unique transaction ID.
+     * @param memberId ID of the borrowing member.
+     * @param isbn ISBN of the borrowed book.
+     */
     public Loan(String loanId, String memberId, String isbn) {
         this.loanId = loanId;
         this.memberId = memberId;
@@ -28,15 +38,24 @@ public class Loan {
         this.status = LoanStatus.ACTIVE;
     }
     
+    /**
+     * Checks if the current loan has exceeded its due date.
+     */
     public boolean isOverdue() {
         return status == LoanStatus.ACTIVE && LocalDate.now().isAfter(dueDate);
     }
     
+    /**
+     * Updates the loan status to RETURNED and records the current date.
+     */
     public void returnBook() {
         this.returnDate = LocalDate.now();
         this.status = LoanStatus.RETURNED;
     }
     
+    /**
+     * Re-initializes the due date for another 14 days.
+     */
     public void renewLoan() {
         if (status != LoanStatus.ACTIVE) {
             throw new IllegalStateException("Can only renew active loans");
@@ -45,6 +64,9 @@ public class Loan {
         this.status = LoanStatus.RENEWED;
     }
     
+    /**
+     * Calculates the number of days between the due date and today.
+     */
     public int getDaysOverdue() {
         if (!isOverdue()) return 0;
         return (int) java.time.temporal.ChronoUnit.DAYS.between(dueDate, LocalDate.now());

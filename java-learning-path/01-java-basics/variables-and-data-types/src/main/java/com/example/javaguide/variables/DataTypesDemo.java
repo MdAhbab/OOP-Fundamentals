@@ -60,12 +60,12 @@ public class DataTypesDemo {
     }
     
     /**
-     * Demonstrates type conversion (casting)
+     * Demonstrates type conversion (casting) between different primitives.
+     * Shows both implicit (widening) and explicit (narrowing) conversion.
      */
     public static void demonstrateTypeConversion() {
         System.out.println("--- Type Conversion ---");
-//        Scanner scanner = new Scanner(System.in);
-//        float cated = scanner.nextInt();
+        
         // Implicit conversion (widening) - automatic
         int intValue = 100;
         long longValue = intValue;              // int -> long (safe)
@@ -143,7 +143,11 @@ public class DataTypesDemo {
     }
     
     /**
-     * Calculates sum of different numeric types
+     * Calculates sum of different numeric types, demonstrating automatic type promotion.
+     * 
+     * @param a The integer component to add
+     * @param b The double component to add
+     * @return The resulting sum as a double
      */
     public static double calculateSum(int a, double b) {
         return a + b; // int is implicitly converted to double

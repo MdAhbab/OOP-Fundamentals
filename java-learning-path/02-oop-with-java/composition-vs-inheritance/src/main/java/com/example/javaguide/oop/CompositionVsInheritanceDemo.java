@@ -1,7 +1,24 @@
 package com.example.javaguide.oop;
 
 /**
- * CompositionVsInheritanceDemo - Demonstrates composition vs inheritance
+ * CompositionVsInheritanceDemo - Demonstrates composition vs inheritance.
+ *
+ * Inheritance (IS-A): Dog IS-AN Animal → extends
+ * Composition (HAS-A): Car HAS-AN Engine → field + delegation
+ *
+ * "Favor composition over inheritance" is a key OOP design principle.
+ * Composition is more flexible because:
+ * - Behaviour can be changed at runtime (swap implementations)
+ * - Avoids tight coupling to a parent class
+ * - No fragile base class problem
+ *
+ * This demo covers:
+ * - Inheritance example (Animal → Dog)
+ * - Composition example (Car has Engine)
+ * - Delegation pattern (Printer delegates to Scanner and PrintEngine)
+ * - Strategy pattern with composition (Bird + FlyBehavior)
+ * - FlyingFish — solving the multiple inheritance problem with composition
+ * - Real-world example: Employee HAS-AN Address
  */
 public class CompositionVsInheritanceDemo {
     

@@ -1,26 +1,42 @@
 package com.example.javaguide.oop;
 
 /**
- * AbstractionDemo - Demonstrates abstraction with abstract classes
+ * AbstractionDemo - Demonstrates abstraction using abstract classes.
+ *
+ * Abstraction hides complex implementation details and shows only
+ * the essential features of an object. In Java, abstraction is achieved
+ * through abstract classes and interfaces.
+ *
+ * This demo covers:
+ * - Abstract classes with abstract and concrete methods
+ * - Shape hierarchy (Circle, Rectangle) with calculateArea()
+ * - Employee hierarchy (Salaried, Hourly) with calculatePay()
+ * - Template Method Pattern — defining an algorithm skeleton in a base class
  */
 public class AbstractionDemo {
-    
+
     public static void main(String[] args) {
         demonstrateShapeAbstraction();
         demonstrateEmployeeAbstraction();
         demonstrateTemplateMethod();
     }
     
+    /**
+     * Shape is abstract — you cannot create a Shape directly.
+     * Instead, create concrete subclasses (Circle, Rectangle) that
+     * provide implementations for calculateArea() and draw().
+     */
     public static void demonstrateShapeAbstraction() {
         System.out.println("=== Shape Abstraction ===");
-        
+
+        // Abstract type reference, concrete type object
         Shape circle = new Circle(5.0);
         Shape rectangle = new Rectangle(4.0, 6.0);
-        
-        circle.draw();
+
+        circle.draw();     // Calls Circle's draw()
         System.out.println("Circle area: " + circle.calculateArea());
-        
-        rectangle.draw();
+
+        rectangle.draw();  // Calls Rectangle's draw()
         System.out.println("Rectangle area: " + rectangle.calculateArea());
         System.out.println();
     }

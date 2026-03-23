@@ -1,81 +1,123 @@
 package com.example.javaguide.oop;
 
 /**
- * EncapsulationDemo - Demonstrates encapsulation principles
+ * EncapsulationDemo - Demonstrates encapsulation principles in Java.
+ *
+ * Encapsulation bundles data (fields) and the methods that operate on that data
+ * into a single unit (class), and restricts direct access to the internals
+ * through access modifiers (private, protected, public).
+ *
+ * This demo covers:
+ * - Private fields with public getters/setters
+ * - Validation inside setters
+ * - Controlled access to sensitive data (BankAccount)
+ * - Immutable objects (ImmutablePerson)
  */
 public class EncapsulationDemo {
-    
+
     public static void main(String[] args) {
         demonstrateBankAccount();
         demonstrateEmployee();
         demonstrateImmutablePerson();
     }
-    
+
+    /**
+     * BankAccount uses encapsulation to protect the balance.
+     * External code cannot set the balance directly; it must go
+     * through deposit() and withdraw() which enforce business rules.
+     */
     public static void demonstrateBankAccount() {
         System.out.println("=== Bank Account Encapsulation ===");
-        
+
         BankAccount account = new BankAccount("12345", 1000.0);
         System.out.println("Account: " + account.getAccountNumber());
         System.out.println("Balance: $" + account.getBalance());
 
-        
+        // Deposit goes through validation (amount must be > 0)
         account.deposit(500.0);
         System.out.println("After deposit: $" + account.getBalance());
-        
+
+        // Withdrawal checks both positive amount AND sufficient funds
         boolean success = account.withdraw(200.0);
         System.out.println("Withdrawal successful: " + success);
         System.out.println("Final balance: $" + account.getBalance());
         System.out.println();
     }
-    
+
+    /**
+     * Employee demonstrates setter validation.
+     * Age must be 18-65; salary must be non-negative.
+     */
     public static void demonstrateEmployee() {
         System.out.println("=== Employee Encapsulation ===");
-        
+
         Employee emp = new Employee("Alice", 25, 50000.0);
         System.out.println("Employee: " + emp.getName());
         System.out.println("Age: " + emp.getAge());
         System.out.println("Salary: $" + emp.getSalary());
-        
-        emp.giveRaise(10); // 10% raise
+
+        emp.giveRaise(10); // 10% raise via controlled method
         System.out.println("After raise: $" + emp.getSalary());
         System.out.println();
     }
-    
+
+    /**
+     * An immutable object's state cannot change after construction.
+     * This is achieved with: final class, final fields, no setters.
+     */
     public static void demonstrateImmutablePerson() {
         System.out.println("=== Immutable Person ===");
-        
+
         ImmutablePerson person = new ImmutablePerson("Bob", 30);
         System.out.println("Person: " + person.getName() + ", " + person.getAge());
-        
-        // Cannot modify - immutable
+
+        // Cannot modify — immutable (no setters available)
         System.out.println("Person is immutable - fields cannot be changed");
         System.out.println();
     }
 }
 
 /**
- * BankAccount - Encapsulated bank account
+ * BankAccount - Encapsulated bank account.
+ *
+ * Key encapsulation points:
+ * - accountNumber is final (set once, never changes)
+ * - balance is private with NO public setter
+ * - balance changes ONLY through deposit() and withdraw() which validate input
  */
 class BankAccount {
-    private final String accountNumber;
-    private double balance;
-    
-    public BankAccount(String AC, double IB) {
-        this.accountNumber = AC;
-        this.balance = IB;
+    private final String accountNumber; // Immutable once set
+    private double balance;             // Only modifiable through controlled methods
+
+    /**
+     * Constructs a new BankAccount.
+     *
+     * @param accountNumber unique identifier for the account
+     * @param initialBalance starting balance (should be >= 0)
+     */
+    public BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
     }
-    
+
+    // Read-only access to the account number
     public String getAccountNumber() {
         return accountNumber;
     }
-    
+
+    // Read-only access to the balance
     public double getBalance() {
         return balance;
     }
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-    
+
+    // NOTE: There is intentionally NO setBalance() — external code
+    // cannot arbitrarily set the balance. It must go through
+    // deposit() or withdraw() which enforce business rules.
+
+    /**
+     * Deposits a positive amount into the account.
+     * Negative or zero amounts are rejected.
+     */
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -84,7 +126,12 @@ class BankAccount {
             System.out.println("Invalid deposit amount");
         }
     }
-    
+
+    /**
+     * Withdraws an amount if sufficient funds are available.
+     *
+     * @return true if withdrawal succeeded, false otherwise
+     */
     public boolean withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;

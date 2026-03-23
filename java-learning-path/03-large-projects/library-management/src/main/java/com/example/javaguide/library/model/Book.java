@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * Book entity representing a book in the library
+ * Defines domain modeling metadata characterizing distinct traceable physical publications securely uniformly naturally natively.
  */
 public class Book {
     private String isbn;
@@ -14,10 +14,21 @@ public class Book {
     private BookStatus status;
     private String category;
     
+    /**
+     * Maps temporary availability states securely classifying access limits uniformly conditionally dynamically structurally.
+     */
     public enum BookStatus {
         AVAILABLE, BORROWED, RESERVED, MAINTENANCE
     }
     
+    /**
+     * Generates tracked variants defining canonical descriptors strictly predictably structurally structurally naturally.
+     * 
+     * @param isbn Distinct identifier defining variant explicitly mapped logically
+     * @param title Reading topic title sequentially mapping natively
+     * @param author Creator tag assigning values uniquely inherently explicitly 
+     * @param publicationYear Numeric epoch defining chronological release universally exclusively naturally
+     */
     public Book(String isbn, String title, String author, int publicationYear) {
         this.isbn = isbn;
         this.title = title;
@@ -46,6 +57,9 @@ public class Book {
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
     
+    /**
+     * Conditionally checks operational capabilities resolving boolean variables structurally safely logically naturally natively.
+     */
     public boolean isAvailable() {
         return status == BookStatus.AVAILABLE;
     }

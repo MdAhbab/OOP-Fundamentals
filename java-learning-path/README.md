@@ -12,11 +12,12 @@ This repository is structured as a progressive learning path designed for develo
 
 ## 📚 Repository Structure
 
-### 1️⃣ Java Basics (18 Topics)
+### 1️⃣ Java Basics (19 Topics)
 Core Java fundamentals that every developer must master.
 
 | Topic | Description | Key Concepts |
 |-------|-------------|--------------|
+| [basic-syntax](01-java-basics/basic-syntax) | Program structure and syntax rules | main method, comments, naming, type casting |
 | [setup-and-tooling](01-java-basics/setup-and-tooling) | Development environment setup | JDK, IDE, Maven |
 | [variables-and-data-types](01-java-basics/variables-and-data-types) | Primitive and reference types | int, double, String, type conversion |
 | [operators-and-expressions](01-java-basics/operators-and-expressions) | Arithmetic, logical, bitwise operators | +, -, &&, \|\|, precedence |
@@ -36,7 +37,7 @@ Core Java fundamentals that every developer must master.
 | [unit-testing-junit](01-java-basics/unit-testing-junit) | Testing fundamentals | JUnit 5, assertions, test lifecycle |
 | [build-tools-maven](01-java-basics/build-tools-maven) | Project management | Maven lifecycle, dependencies |
 
-### 2️⃣ OOP with Java (13 Topics)
+### 2️⃣ OOP with Java (17 Topics)
 Object-Oriented Programming principles and advanced concepts.
 
 | Topic | Description | Key Concepts |
@@ -48,7 +49,11 @@ Object-Oriented Programming principles and advanced concepts.
 | [abstraction](02-oop-with-java/abstraction) | Essential features | abstract classes, abstract methods |
 | [interfaces](02-oop-with-java/interfaces) | Contracts | interface implementation, default methods |
 | [abstract-classes](02-oop-with-java/abstract-classes) | Partial implementations | abstract vs concrete methods |
-| [nested-and-inner-classes](02-oop-with-java/nested-and-inner-classes) | Class composition | static nested, inner, local, anonymous |
+| [method-overloading](02-oop-with-java/method-overloading) | Compile-time polymorphism | same name, different parameters |
+| [method-overriding](02-oop-with-java/method-overriding) | Runtime polymorphism | @Override, covariant return types |
+| [static-members](02-oop-with-java/static-members) | Class-level members | static fields, methods, blocks |
+| [inner-classes](02-oop-with-java/inner-classes) | Nested types | static nested, inner, local, anonymous |
+| [composition-vs-inheritance](02-oop-with-java/composition-vs-inheritance) | Design preference | HAS-A vs IS-A, delegation |
 | [enums](02-oop-with-java/enums) | Type-safe constants | enum declaration, methods |
 | [object-equality-hashcode-tostring](02-oop-with-java/object-equality-hashcode-tostring) | Object contract | equals(), hashCode(), toString() |
 | [immutability](02-oop-with-java/immutability) | Unchangeable objects | final fields, defensive copies |
@@ -58,7 +63,7 @@ Object-Oriented Programming principles and advanced concepts.
 ### 3️⃣ OOP Projects (2 Large Applications)
 Real-world applications demonstrating OOP design patterns and best practices.
 
-#### 🏛️ [Library Management System](03-oop-projects/project-library-management)
+#### 🏛️ [Library Management System](03-large-projects/library-management)
 A comprehensive library management application with book lending, member management, and fine calculation.
 
 **Features:**
@@ -73,7 +78,7 @@ A comprehensive library management application with book lending, member managem
 **Classes:** 15+  
 **Packages:** model, service, repository, factory, strategy, util, ui
 
-#### 🛒 [E-commerce Shopping Cart](03-oop-projects/project-ecommerce-cart)
+#### 🛒 [E-commerce Shopping Cart](03-large-projects/ecommerce-cart)
 A feature-rich shopping cart system with product catalog, order processing, and notifications.
 
 **Features:**
@@ -115,7 +120,7 @@ mvn test
 ### Running a Project
 
 ```powershell
-cd 03-oop-projects\project-library-management
+cd 03-large-projects\library-management
 mvn clean package
 java -jar target\library-management-1.0-SNAPSHOT.jar
 ```
@@ -124,12 +129,12 @@ java -jar target\library-management-1.0-SNAPSHOT.jar
 
 ### Recommended Order
 
-1. **Start with Java Basics** (Topics 1-18)
+1. **Start with Java Basics** (Topics 1-19)
    - Follow the order listed above
    - Complete exercises in each README
    - Ensure all tests pass before moving forward
 
-2. **Progress to OOP Concepts** (Topics 1-13)
+2. **Progress to OOP Concepts** (Topics 1-17)
    - Build on Java basics knowledge
    - Pay special attention to SOLID principles
    - Study design patterns introduction
@@ -169,7 +174,7 @@ Get-ChildItem -Path 01-java-basics -Directory | ForEach-Object { cd $_.FullName;
 Get-ChildItem -Path 02-oop-with-java -Directory | ForEach-Object { cd $_.FullName; mvn clean test; cd ..\.. }
 
 # Build all projects
-Get-ChildItem -Path 03-oop-projects -Directory | ForEach-Object { cd $_.FullName; mvn clean test; cd ..\.. }
+Get-ChildItem -Path 03-large-projects -Directory | ForEach-Object { cd $_.FullName; mvn clean test; cd ..\.. }
 ```
 
 ## 📝 Contributing

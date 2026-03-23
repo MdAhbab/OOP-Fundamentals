@@ -1,7 +1,18 @@
 package com.example.javaguide.oop;
 
 /**
- * InnerClassesDemo - Demonstrates inner classes in Java
+ * InnerClassesDemo - Demonstrates inner and nested classes in Java.
+ *
+ * Java supports four kinds of nested types:
+ * 1. Member inner class   — non-static, can access outer's instance members
+ * 2. Static nested class  — static, can only access outer's static members
+ * 3. Local inner class    — defined inside a method, can access effectively-final locals
+ * 4. Anonymous inner class — unnamed class defined inline (replaced by lambdas for SAM interfaces)
+ *
+ * This demo also shows real-world uses:
+ * - Event listeners (Button + ClickListener)
+ * - Iterator pattern (LinkedList + LinkedListIterator)
+ * - Builder pattern (Person.Builder)
  */
 public class InnerClassesDemo {
     

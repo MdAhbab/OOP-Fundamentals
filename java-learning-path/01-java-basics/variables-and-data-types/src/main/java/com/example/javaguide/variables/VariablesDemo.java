@@ -82,21 +82,27 @@ public class VariablesDemo {
     }
     
     /**
-     * Gets the instance variable value
+     * Gets the instance variable value.
+     * 
+     * @return The current value of the instance variable
      */
     public int getInstanceVariable() {
         return instanceVariable;
     }
     
     /**
-     * Gets the class variable value
+     * Gets the class variable value.
+     * 
+     * @return The current value of the class variable
      */
     public static int getClassVariable() {
         return classVariable;
     }
     
     /**
-     * Gets the constant value
+     * Gets the constant value.
+     * 
+     * @return The constant mathematical value of PI
      */
     public static double getPI() {
         return PI;

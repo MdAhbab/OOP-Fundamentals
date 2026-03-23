@@ -3,10 +3,20 @@ package com.example.javaguide.arrays;
 import java.util.Arrays;
 
 /**
- * ArraysDemo - Demonstrates array declaration, initialization, and operations
+ * ArraysDemo - Demonstrates array declaration, initialization, and operations in Java.
+ * 
+ * An array is a container object that holds a fixed number of values of a single type.
+ * This class covers:
+ * - Basic array declaration and allocation
+ * - Array operations (sum, average, min, max, reverse)
+ * - The java.util.Arrays utility class
+ * - Enhanced for-loop iteration
  */
 public class ArraysDemo {
     
+    /**
+     * Main method running array demonstrations.
+     */
     public static void main(String[] args) {
         demonstrateBasics();
         demonstrateOperations();
@@ -14,6 +24,9 @@ public class ArraysDemo {
         demonstrateEnhancedForLoop();
     }
     
+    /**
+     * Demonstrates basic array creation, indexing, and array literals.
+     */
     public static void demonstrateBasics() {
         System.out.println("=== Array Basics ===");
         
@@ -34,6 +47,9 @@ public class ArraysDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates common array algorithms (sum, average, max, min, reversal).
+     */
     public static void demonstrateOperations() {
         System.out.println("=== Array Operations ===");
         
@@ -57,6 +73,10 @@ public class ArraysDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates the built-in java.util.Arrays utility methods 
+     * like sort(), binarySearch(), fill(), and copyOf().
+     */
     public static void demonstrateArraysClass() {
         System.out.println("=== Arrays Utility Class ===");
         
@@ -82,6 +102,9 @@ public class ArraysDemo {
         System.out.println();
     }
     
+    /**
+     * Demonstrates how to iterate through an array using the enhanced for-loop.
+     */
     public static void demonstrateEnhancedForLoop() {
         System.out.println("=== Enhanced For Loop ===");
         
@@ -96,6 +119,12 @@ public class ArraysDemo {
     
     // Utility methods
     
+    /**
+     * Calculates the sum of all elements in an integer array.
+     * 
+     * @param arr The input array
+     * @return The sum of all elements
+     */
     public static int sum(int[] arr) {
         int total = 0;
         for (int num : arr) {
@@ -104,11 +133,24 @@ public class ArraysDemo {
         return total;
     }
     
+    /**
+     * Calculates the average of all elements in an integer array.
+     * 
+     * @param arr The input array
+     * @return The double average, or 0 if array is empty
+     */
     public static double average(int[] arr) {
         if (arr.length == 0) return 0;
         return (double) sum(arr) / arr.length;
     }
     
+    /**
+     * Finds the maximum value in an integer array.
+     * 
+     * @param arr The input array
+     * @return The maximum element in the array
+     * @throws IllegalArgumentException if the array is empty
+     */
     public static int max(int[] arr) {
         if (arr.length == 0) throw new IllegalArgumentException("Array is empty");
         
@@ -121,6 +163,13 @@ public class ArraysDemo {
         return maximum;
     }
     
+    /**
+     * Finds the minimum value in an integer array.
+     * 
+     * @param arr The input array
+     * @return The minimum element in the array
+     * @throws IllegalArgumentException if the array is empty
+     */
     public static int min(int[] arr) {
         if (arr.length == 0) throw new IllegalArgumentException("Array is empty");
         
@@ -133,6 +182,12 @@ public class ArraysDemo {
         return minimum;
     }
     
+    /**
+     * Returns a new array with the elements of the input array in reverse order.
+     * 
+     * @param arr The input array
+     * @return A newly allocated array with reversed elements
+     */
     public static int[] reverse(int[] arr) {
         int[] reversed = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
@@ -141,6 +196,13 @@ public class ArraysDemo {
         return reversed;
     }
     
+    /**
+     * Performs a linear search to find the index of a target value.
+     * 
+     * @param arr The array to search
+     * @param target The value to search for
+     * @return The index of the target, or -1 if not found
+     */
     public static int linearSearch(int[] arr, int target) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == target) {
@@ -150,6 +212,13 @@ public class ArraysDemo {
         return -1; // Not found
     }
     
+    /**
+     * Checks if an array contains a specific value using linear search.
+     * 
+     * @param arr The input array
+     * @param value The value to check for 
+     * @return true if the value exists in the array
+     */
     public static boolean contains(int[] arr, int value) {
         return linearSearch(arr, value) != -1;
     }

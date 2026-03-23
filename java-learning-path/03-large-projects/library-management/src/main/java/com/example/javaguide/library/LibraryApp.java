@@ -7,17 +7,25 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Main application with CLI interface
+ * LibraryApp - CLI orchestration gateway controlling interactive input states globally natively.
+ * 
+ * Maps structural menu interfaces into discrete LibraryService business routines dynamically.
  */
 public class LibraryApp {
     private static final LibraryService library = LibraryService.getInstance();
     private static final Scanner scanner = new Scanner(System.in);
     
+    /**
+     * Initializes default configuration and boots structural interaction loops infinitely.
+     */
     public static void main(String[] args) {
         initializeData();
         runCLI();
     }
     
+    /**
+     * Prepopulates staging repositories generating verifiable seed data testing parameters cleanly explicitly.
+     */
     private static void initializeData() {
         // Add sample books
         library.addBook(new Book("978-0134685991", "Effective Java", "Joshua Bloch", 2018));
@@ -29,6 +37,9 @@ public class LibraryApp {
         library.registerMember(new Member("M002", "Bob Smith"));
     }
     
+    /**
+     * Defines primary interactive event listener parsing numerical choices redirecting explicitly natively.
+     */
     private static void runCLI() {
         System.out.println("=== Library Management System ===\n");
         
@@ -58,6 +69,9 @@ public class LibraryApp {
         }
     }
     
+    /**
+     * Renders standard operational choices outputting formatted text visually.
+     */
     private static void displayMenu() {
         System.out.println("""
                 1. List all books
@@ -71,6 +85,9 @@ public class LibraryApp {
                 Enter choice:\s""");
     }
     
+    /**
+     * Pulls sequential catalogue entries mapping text values universally directly structurally correctly.
+     */
     private static void listAllBooks() {
         List<Book> books = library.getAllBooks();
         System.out.println("\n--- All Books ---");
@@ -81,6 +98,9 @@ public class LibraryApp {
         }
     }
     
+    /**
+     * Queries matching entries splitting searches dynamically conditionalizing targets correctly logically natively.
+     */
     private static void searchBooks() {
         System.out.print("Search by (1) Title or (2) Author: ");
         String type = scanner.nextLine().trim();
@@ -100,6 +120,9 @@ public class LibraryApp {
         }
     }
     
+    /**
+     * Orchestrates structural checks mapping users explicitly initiating checkout validation explicitly statically mechanically.
+     */
     private static void borrowBook() {
         System.out.print("Enter member ID: ");
         String memberId = scanner.nextLine().trim();
@@ -111,6 +134,9 @@ public class LibraryApp {
         System.out.println("Book borrowed successfully. Loan ID: " + loanId);
     }
     
+    /**
+     * Handles returning phases confirming tracking parameters safely directly synchronously natively.
+     */
     private static void returnBook() {
         System.out.print("Enter loan ID: ");
         String loanId = scanner.nextLine().trim();
@@ -119,6 +145,9 @@ public class LibraryApp {
         System.out.println("Book returned successfully.");
     }
     
+    /**
+     * Gathers component descriptors verifying values mapping inventory entities explicitly correctly structurally natively.
+     */
     private static void addBook() {
         System.out.print("Enter ISBN: ");
         String isbn = scanner.nextLine().trim();
@@ -137,6 +166,9 @@ public class LibraryApp {
         System.out.println("Book added successfully.");
     }
     
+    /**
+     * Parses account components generating tracked target memberships universally fundamentally seamlessly explicitly structurally natively.
+     */
     private static void registerMember() {
         System.out.print("Enter member ID: ");
         String memberId = scanner.nextLine().trim();

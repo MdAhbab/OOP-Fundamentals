@@ -3,16 +3,29 @@ package com.example.javaguide.collections;
 import java.util.*;
 
 /**
- * SetDemo - Demonstrates Set interface implementations
+ * SetDemo - Demonstrates Set interface implementations in Java.
+ *
+ * A Set is a collection that cannot contain duplicate elements.
+ * This class covers:
+ * - HashSet (Fast, unordered)
+ * - TreeSet (Sorted, slower insertion)
+ * - Set operations (Union, Intersection, Difference)
  */
 public class SetDemo {
     
+    /**
+     * Main method running all Set demonstrations.
+     */
     public static void main(String[] args) {
         demonstrateHashSet();
         demonstrateTreeSet();
         demonstrateSetOperations();
     }
     
+    /**
+     * Demonstrates HashSet properties and methods.
+     * HashSet uses hashing and does not guarantee insertion order.
+     */
     public static void demonstrateHashSet() {
         System.out.println("=== HashSet Demo ===");
         
@@ -33,7 +46,10 @@ public class SetDemo {
         System.out.println("After remove: " + fruits);
         System.out.println();
     }
-    
+    /**
+     * Demonstrates TreeSet properties and methods.
+     * TreeSet implements SortedSet and maintains elements in natural ordering.
+     */
     public static void demonstrateTreeSet() {
         System.out.println("=== TreeSet Demo ===");
         
@@ -53,7 +69,9 @@ public class SetDemo {
         System.out.println("Subset (2-5): " + treeSet.subSet(2, 6));
         System.out.println();
     }
-    
+    /**
+     * Demonstrates mathematical Set operations: Union, Intersection, Difference.
+     */
     public static void demonstrateSetOperations() {
         System.out.println("=== Set Operations ===");
         
@@ -76,11 +94,23 @@ public class SetDemo {
         System.out.println("Difference: " + difference);
         System.out.println();
     }
-    
+    /**
+     * Converts an array into a Set, effectively removing any duplicates.
+     * 
+     * @param array The input array of Strings
+     * @return A Set containing the unique elements from the array
+     */
     public static Set<String> removeDuplicatesFromArray(String[] array) {
         return new HashSet<>(Arrays.asList(array));
     }
     
+    /**
+     * Checks if one set is a subset of another.
+     * 
+     * @param subset The potential subset
+     * @param superset The potential superset
+     * @return true if all elements of subset are in superset
+     */
     public static boolean isSubset(Set<?> subset, Set<?> superset) {
         return superset.containsAll(subset);
     }

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Member entity representing a library member
+ * Represents a library member with their associated data and borrowing rules.
  */
 public class Member {
     private String memberId;
@@ -17,6 +17,9 @@ public class Member {
     private MembershipType membershipType;
     private List<String> borrowedBooks; // ISBNs
     
+    /**
+     * Defines the limits for different membership tiers.
+     */
     public enum MembershipType {
         BASIC(3),      // Can borrow 3 books
         PREMIUM(5),    // Can borrow 5 books
@@ -33,6 +36,12 @@ public class Member {
         }
     }
     
+    /**
+     * Constructs a new Member with basic defaults.
+     * 
+     * @param memberId Unique identifier for the member.
+     * @param name Full name of the member.
+     */
     public Member(String memberId, String name) {
         this.memberId = memberId;
         this.name = name;
@@ -41,10 +50,16 @@ public class Member {
         this.borrowedBooks = new ArrayList<>();
     }
     
+    /**
+     * Checks if the member can borrow more books based on their membership type.
+     */
     public boolean canBorrowMore() {
         return borrowedBooks.size() < membershipType.getMaxBooks();
     }
     
+    /**
+     * Records a book borrowing event for this member.
+     */
     public void borrowBook(String isbn) {
         if (!canBorrowMore()) {
             throw new IllegalStateException("Maximum books limit reached");
@@ -52,6 +67,9 @@ public class Member {
         borrowedBooks.add(isbn);
     }
     
+    /**
+     * Records a book return event for this member.
+     */
     public void returnBook(String isbn) {
         borrowedBooks.remove(isbn);
     }

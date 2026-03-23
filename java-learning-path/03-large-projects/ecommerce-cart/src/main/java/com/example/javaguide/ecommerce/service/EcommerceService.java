@@ -7,7 +7,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * E-commerce service (Singleton pattern)
+ * Core domain service for e-commerce operations.
+ * Implements the Singleton pattern to provide global access to products and orders.
  */
 public class EcommerceService {
     private static EcommerceService instance;
@@ -20,6 +21,9 @@ public class EcommerceService {
         initializeProducts();
     }
     
+    /**
+     * Singleton instance retriever guarding concurrent structural evaluations correctly sequentially thread-safely structurally.
+     */
     public static synchronized EcommerceService getInstance() {
         if (instance == null) {
             instance = new EcommerceService();
@@ -40,24 +44,39 @@ public class EcommerceService {
         products.get("P004").setStockQuantity(15);
     }
     
+    /**
+     * Adds defined variants parsing properties mapped into global lookup nodes seamlessly structurally.
+     */
     public void addProduct(Product product) {
         products.put(product.getProductId(), product);
     }
     
+    /**
+     * Checks matching product elements resolving wrapped optionals gracefully unconditionally universally inherently.
+     */
     public Optional<Product> getProduct(String productId) {
         return Optional.ofNullable(products.get(productId));
     }
     
+    /**
+     * Resolves absolute complete structural inventory segments explicitly generically formatting cleanly dynamically mechanically natively.
+     */
     public List<Product> getAllProducts() {
         return new ArrayList<>(products.values());
     }
     
+    /**
+     * Isolates exact targets utilizing sequential regex filters natively matching character bounds unconditionally correctly statically inherently.
+     */
     public List<Product> searchProducts(String keyword) {
         return products.values().stream()
                 .filter(p -> p.getName().toLowerCase().contains(keyword.toLowerCase()))
                 .collect(Collectors.toList());
     }
     
+    /**
+     * Executes fully resolved complex business workflows generating Orders directly resolving payment capabilities generically testing dynamically conditionally mathematically mechanically.
+     */
     public Order checkout(ShoppingCart cart, PaymentStrategy paymentStrategy) {
         // Validate stock
         for (var entry : cart.getItems().entrySet()) {

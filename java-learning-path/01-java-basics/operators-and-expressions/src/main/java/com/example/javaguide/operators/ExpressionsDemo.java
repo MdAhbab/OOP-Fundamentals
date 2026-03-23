@@ -1,15 +1,26 @@
 package com.example.javaguide.operators;
 
 /**
- * ExpressionsDemo - Demonstrates complex expressions and precedence
+ * ExpressionsDemo - Demonstrates complex expressions and operator precedence in Java.
+ * 
+ * An expression is a construct made up of variables, operators, and method 
+ * invocations that evaluates to a single value.
+ * Precedence determines the order in which operators are evaluated.
  */
 public class ExpressionsDemo {
     
+    /**
+     * Main method running all expression demonstrations.
+     */
     public static void main(String[] args) {
         demonstratePrecedence();
         demonstrateComplexExpressions();
     }
     
+    /**
+     * Demonstrates how operator precedence affects the evaluated result
+     * of mathematical and logical expressions.
+     */
     public static void demonstratePrecedence() {
         System.out.println("=== Operator Precedence ===");
         
@@ -23,7 +34,10 @@ public class ExpressionsDemo {
         System.out.println("5 > 3 && 10 < 20 = " + result3);
         System.out.println();
     }
-    
+    /**
+     * Demonstrates more complex combinations of operators,
+     * including arithmetic, relational, and logical operators in single expressions.
+     */
     public static void demonstrateComplexExpressions() {
         System.out.println("=== Complex Expressions ===");
         

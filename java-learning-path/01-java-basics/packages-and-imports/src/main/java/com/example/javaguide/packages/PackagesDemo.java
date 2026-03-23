@@ -14,10 +14,19 @@ import static java.lang.Math.PI;
 import static java.lang.Math.sqrt;
 
 /**
- * PackagesDemo - Demonstrates package organization and imports
+ * PackagesDemo - Demonstrates Java package organization, imports, and access modifiers.
+ * 
+ * This class covers:
+ * - Specific class imports
+ * - Statically importing constants and methods
+ * - Standard library imports
+ * - Public vs Package-Private access modifiers
  */
 public class PackagesDemo {
     
+    /**
+     * Main method running all package demonstrations.
+     */
     public static void main(String[] args) {
         System.out.println("=== Packages and Imports Demo ===\n");
         
@@ -26,7 +35,9 @@ public class PackagesDemo {
         demonstrateStandardLibrary();
         demonstrateAccessModifiers();
     }
-    
+    /**
+     * Demonstrates using classes imported from entirely different packages.
+     */
     public static void demonstratePackageUsage() {
         System.out.println("--- Package Usage ---");
 
@@ -40,7 +51,10 @@ public class PackagesDemo {
         
         System.out.println();
     }
-    
+    /**
+     * Demonstrates the use of static imports to directly call static fields 
+     * and methods without specifying their class name.
+     */
     public static void demonstrateStaticImports() {
         System.out.println("--- Static Imports ---");
         
@@ -53,7 +67,9 @@ public class PackagesDemo {
         
         System.out.println();
     }
-    
+    /**
+     * Demonstrates importing and utilizing classes from the Java standard library.
+     */
     public static void demonstrateStandardLibrary() {
         System.out.println("--- Standard Library Imports ---");
         
@@ -67,7 +83,10 @@ public class PackagesDemo {
         
         System.out.println();
     }
-    
+    /**
+     * Demonstrates visibility differences between public modifiers 
+     * and default (package-private) access.
+     */
     public static void demonstrateAccessModifiers() {
         System.out.println("--- Access Modifiers ---");
         
@@ -84,10 +103,14 @@ public class PackagesDemo {
 }
 
 /**
- * Package-private class (no modifier)
- * Only accessible within the same package
+ * PackagePrivateExample is a package-private class (no modifier).
+ * It is only accessible to other classes within the same package.
  */
 class PackagePrivateExample {
+    
+    /**
+     * Package-private method displaying a message.
+     */
     void display() {
         System.out.println("This is a package-private class");
     }

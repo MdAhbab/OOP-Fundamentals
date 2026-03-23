@@ -8,7 +8,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 /**
- * Library service - business logic layer (Singleton pattern)
+ * Service layer for the Library Management System.
+ * Orchestrates operations between repositories and domain services,
+ * managing books, members, and the borrowing/returning lifecycle.
  */
 public class LibraryService {
     private static LibraryService instance;
@@ -22,6 +24,9 @@ public class LibraryService {
         this.memberService = new MemberService();
     }
     
+    /**
+     * Pulls sequential contexts.
+     */
     public static synchronized LibraryService getInstance() {
         if (instance == null) {
             instance = new LibraryService();
@@ -60,6 +65,9 @@ public class LibraryService {
     }
     
     // Loan operations
+    /**
+     * Processes a book borrowing request.
+     */
     public String borrowBook(String memberId, String isbn) {
         Member member = memberService.findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("Member not found"));
@@ -89,6 +97,9 @@ public class LibraryService {
         return loanId;
     }
     
+    /**
+     * Processes a book returning request.
+     */
     public void returnBook(String loanId) {
         Loan loan = loanService.findById(loanId)
                 .orElseThrow(() -> new IllegalArgumentException("Loan not found"));
