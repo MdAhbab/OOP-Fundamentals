@@ -58,7 +58,11 @@ Deep dive into Object-Oriented design and Pythonic implementation patterns.
 
 ---
 
-### 3️⃣ Large Projects
+### 3️⃣ Practice Exercises
+Common algorithmic and logic challenges for beginners.
+- [Practice Exercises](./practise) (10 Challenges)
+
+### 4️⃣ Large Projects
 Real-world applications demonstrating advanced OOP design patterns.
 
 #### 🏛️ [Library Management System](03-large-projects/library-management)

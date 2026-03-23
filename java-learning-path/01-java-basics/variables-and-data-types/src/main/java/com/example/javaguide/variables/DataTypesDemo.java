@@ -1,7 +1,5 @@
 package com.example.javaguide.variables;
 
-import java.util.Scanner;
-
 /**
  * DataTypesDemo - Demonstrates all Java primitive data types
  * 

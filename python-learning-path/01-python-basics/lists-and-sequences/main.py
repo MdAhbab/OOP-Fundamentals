@@ -21,7 +21,7 @@ def main():
     print(f"Single index [0]: {numbers[0]}")
     print(f"Negative index [-1]: {numbers[-1]}")
     print(f"Slice [2:5]: {numbers[2:5]}")     # Index 2 to 4
-    print(f"Slice [:3]: {numbers[:3]}")       # Star to 2
+    print(f"Slice [:3]: {numbers[:3]}")       # Start to 2
     print(f"Slice [7:]: {numbers[7:]}")       # 7 to end
     print(f"Step [::2]: {numbers[::2]}")     # Every second element
     print(f"Reverse [::-1]: {numbers[::-1]}") # Reversed
