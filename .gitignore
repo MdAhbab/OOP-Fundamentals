@@ -9,5 +9,5 @@ __pycache__/
 **/target/
 
 # IDEs
-# .idea/
-# *.iml
+.idea/
+*.iml
