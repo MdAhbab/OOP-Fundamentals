@@ -1,0 +1,13 @@
+# OS junk
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Java (Maven/Gradle build output)
+**/target/
+
+# IDEs
+# .idea/
+# *.iml
