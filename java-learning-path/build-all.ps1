@@ -74,11 +74,11 @@ function Build-Topic {
             if (Get-Command mvn -ErrorAction SilentlyContinue) {
                 $output = mvn clean test 2>&1
                 if ($LASTEXITCODE -eq 0) {
-                    Write-Host "  ✓ Success" -ForegroundColor Green
+                    Write-Host "  [PASS] Success" -ForegroundColor Green
                     $script:successCount++
                     return @{Topic="$category/$topic"; Status="Success"}
                 } else {
-                    Write-Host "  ✗ Failed" -ForegroundColor Red
+                    Write-Host "  [FAIL] Failed" -ForegroundColor Red
                     $script:failCount++
                     return @{Topic="$category/$topic"; Status="Failed"}
                 }
@@ -88,7 +88,7 @@ function Build-Topic {
             }
         }
         catch {
-            Write-Host "  ✗ Error: $_" -ForegroundColor Red
+            Write-Host "  [FAIL] Error: $_" -ForegroundColor Red
             $script:failCount++
             return @{Topic="$category/$topic"; Status="Error"}
         }
@@ -127,11 +127,11 @@ if (Test-Path $practisePath) {
                 # Attempt to compile all java files
                 $output = javac *.java 2>&1
                 if ($LASTEXITCODE -eq 0) {
-                    Write-Host "  ✓ Success" -ForegroundColor Green
+                    Write-Host "  [PASS] Success" -ForegroundColor Green
                     $script:successCount++
                     $results += @{Topic="practise (compile)"; Status="Success"}
                 } else {
-                    Write-Host "  ✗ Failed`n$output" -ForegroundColor Red
+                    Write-Host "  [FAIL] Failed`n$output" -ForegroundColor Red
                     $script:failCount++
                     $results += @{Topic="practise (compile)"; Status="Failed"}
                 }
@@ -145,7 +145,7 @@ if (Test-Path $practisePath) {
         }
     }
     catch {
-        Write-Host "  ✗ Error: $_" -ForegroundColor Red
+        Write-Host "  [FAIL] Error: $_" -ForegroundColor Red
         $script:failCount++
         $results += @{Topic="practise (compile)"; Status="Error"}
     }
@@ -168,9 +168,9 @@ Write-Host "Detailed Results:" -ForegroundColor Cyan
 $results | Format-Table -Auto
 
 if ($failCount -eq 0 -and $successCount -gt 0) {
-    Write-Host "`n✓ All builds successful!" -ForegroundColor Green
+    Write-Host "`n[PASS] All builds successful!" -ForegroundColor Green
 } elseif ($successCount -eq 0) {
     Write-Host "`n! No builds performed (Maven likely missing)." -ForegroundColor Yellow
 } else {
-    Write-Host "`n⚠ Some builds failed. Check errors above." -ForegroundColor Yellow
+    Write-Host "`n[WARN] Some builds failed. Check errors above." -ForegroundColor Yellow
 }

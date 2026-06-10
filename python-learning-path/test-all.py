@@ -21,15 +21,16 @@ def run_practise_scripts():
     for script in scripts:
         print(f"Executing {script}...", end=" ")
         try:
-            result = subprocess.run([sys.executable, script], capture_output=True, text=True)
+            # Provide multiple newlines to satisfy any input() calls without hanging
+            result = subprocess.run([sys.executable, script], capture_output=True, text=True, input="\n\n\n\n\n")
             if result.returncode == 0:
-                print("✅ Success")
+                print("[PASS] Success")
             else:
-                print("❌ Failed")
+                print("[FAIL] Failed")
                 print(f"Error output:\n{result.stderr}")
                 all_passed = False
         except Exception as e:
-            print("❌ Error")
+            print("[FAIL] Error")
             print(f"Exception: {e}")
             all_passed = False
 
@@ -47,10 +48,10 @@ def run_all_tests():
     practise_success = run_practise_scripts()
     
     if result.wasSuccessful() and practise_success:
-        print("\n✅ All tests and practice scripts passed!")
+        print("\n[PASS] All tests and practice scripts passed!")
         sys.exit(0)
     else:
-        print("\n❌ Some tests or practice scripts failed.")
+        print("\n[FAIL] Some tests or practice scripts failed.")
         sys.exit(1)
 
 if __name__ == "__main__":
