@@ -1,9 +1,19 @@
+# ============================================================================
+# .gitignore
+# Task/Purpose: This file tells Git which files or directories to ignore and 
+# not track in version control. We use it to avoid committing generated files 
+# (like compiled .pyc, Java target directories), IDE-specific settings 
+# (like .idea), and OS-specific files (like .DS_Store), keeping the 
+# repository clean and focused only on the source code.
+# ============================================================================
+
 # OS junk
 .DS_Store
 
 # Python
 __pycache__/
 *.pyc
+venv/
 
 # Java (Maven/Gradle build output)
 **/target/
