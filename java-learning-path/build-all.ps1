@@ -113,6 +113,50 @@ foreach ($topic in $oopTopics) { $results += Build-Topic "02-oop-with-java" $top
 Write-Host "`n--- Building Large Projects ---`n" -ForegroundColor Cyan
 foreach ($topic in $projectTopics) { $results += Build-Topic "03-large-projects" $topic }
 
+# Build Practise
+Write-Host "`n--- Building Practise Folder ---`n" -ForegroundColor Cyan
+$practisePath = Join-Path $basePath "practise"
+if (Test-Path $practisePath) {
+    Write-Host "Compiling Java files in practise/..." -ForegroundColor Yellow
+    Push-Location $practisePath
+    
+    try {
+        if (Get-Command javac -ErrorAction SilentlyContinue) {
+            $javaFiles = Get-ChildItem -Filter "*.java"
+            if ($javaFiles.Count -gt 0) {
+                # Attempt to compile all java files
+                $output = javac *.java 2>&1
+                if ($LASTEXITCODE -eq 0) {
+                    Write-Host "  ✓ Success" -ForegroundColor Green
+                    $script:successCount++
+                    $results += @{Topic="practise (compile)"; Status="Success"}
+                } else {
+                    Write-Host "  ✗ Failed`n$output" -ForegroundColor Red
+                    $script:failCount++
+                    $results += @{Topic="practise (compile)"; Status="Failed"}
+                }
+            } else {
+                Write-Host "  - Skipping (no .java files)" -ForegroundColor Gray
+                $results += @{Topic="practise (compile)"; Status="Skipped"}
+            }
+        } else {
+            Write-Host "  ! Warning: 'javac' not found. Skipping compilation." -ForegroundColor Gray
+            $results += @{Topic="practise (compile)"; Status="JavacNotFound"}
+        }
+    }
+    catch {
+        Write-Host "  ✗ Error: $_" -ForegroundColor Red
+        $script:failCount++
+        $results += @{Topic="practise (compile)"; Status="Error"}
+    }
+    finally {
+        Pop-Location
+    }
+} else {
+    Write-Host "  - Skipping (not found)" -ForegroundColor Gray
+    $results += @{Topic="practise (compile)"; Status="NotFound"}
+}
+
 # Summary
 Write-Host "`n=== Build Summary ===" -ForegroundColor Cyan
 Write-Host "Successful: $successCount" -ForegroundColor Green
